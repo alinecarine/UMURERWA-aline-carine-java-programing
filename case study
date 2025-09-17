@@ -1,0 +1,59 @@
+import java.util.Scanner;
+
+public class SimpleMarks {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        int total = 0;
+        int pass = 0;
+        int fail = 0;
+
+        while (true) {
+            System.out.print("Enter student marks (0–100) or -1 to stop: ");
+            int marks = input.nextInt();
+
+            if (marks == -1) {
+                break; // Stop when -1 is entered
+            }
+
+            if (marks < 0 || marks > 100) {
+                System.out.println("Invalid marks. Try again.");
+                continue;
+            }
+
+            total++;
+
+            // Assign grade
+            if (marks >= 80) {
+                System.out.println("Grade: A");
+            } else if (marks >= 70) {
+                System.out.println("Grade: B");
+            } else if (marks >= 60) {
+                System.out.println("Grade: C");
+            } else if (marks >= 50) {
+                System.out.println("Grade: D");
+            } else {
+                System.out.println("Grade: F");
+            }
+
+            if (marks >= 50) {
+                pass++;
+            } else {
+                fail++;
+            }
+        }
+
+        // Show summary
+        System.out.println("\n--- Summary ---");
+        System.out.println("Total students: " + total);
+        System.out.println("Passed: " + pass);
+        System.out.println("Failed: " + fail);
+
+        if (total > 0) {
+            double rate = (pass * 100.0) / total;
+            System.out.printf("Pass rate: %.2f%%\n", rate);
+        } else {
+            System.out.println("No marks entered.");
+        }
+    }
+}
