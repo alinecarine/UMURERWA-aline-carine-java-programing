@@ -1,0 +1,52 @@
+import java.util.Scanner;
+class Rectangle {
+    double length;
+    double width;
+
+    double calculateArea() {
+        return length * width;
+    }
+}
+
+class Circle {
+    double radius;
+
+    double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Choose a shape to calculate area:");
+        System.out.println("1. Rectangle");
+        System.out.println("2. Circle");
+        System.out.print("Enter your choice (1 or 2): ");
+        int choice = scanner.nextInt();
+
+        switch (choice) {
+            case 1:
+                Rectangle rect = new Rectangle();
+                System.out.print("Enter length: ");
+                rect.length = scanner.nextDouble();
+                System.out.print("Enter width: ");
+                rect.width = scanner.nextDouble();
+                System.out.println("Area of Rectangle: " + rect.calculateArea());
+                break;
+
+            case 2:
+                Circle circle = new Circle();
+                System.out.print("Enter radius: ");
+                circle.radius = scanner.nextDouble();
+                System.out.println("Area of Circle: " + circle.calculateArea());
+                break;
+
+            default:
+                System.out.println("Invalid choice. Please select 1 or 2.");
+        }
+
+        scanner.close();
+    }
+}
