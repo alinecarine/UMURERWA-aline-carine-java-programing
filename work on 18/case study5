@@ -1,0 +1,49 @@
+import java.util.Scanner;
+class Rectangle {
+    double length;
+    double width;
+
+    double calculateArea() {
+        return length * width;
+    }
+}
+
+class Circle {
+    double radius;
+
+    double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        Rectangle rect = new Rectangle();
+        System.out.print("Enter the length of the rectangle: ");
+        rect.length = scanner.nextDouble();
+        System.out.print("Enter the width of the rectangle: ");
+        rect.width = scanner.nextDouble();
+
+        Circle circle = new Circle();
+        System.out.print("Enter the radius of the circle: ");
+        circle.radius = scanner.nextDouble();
+
+        double rectArea = rect.calculateArea();
+        double circleArea = circle.calculateArea();
+
+        System.out.println("\nArea of Rectangle: " + rectArea);
+        System.out.println("Area of Circle: " + circleArea);
+
+        if (rectArea > circleArea) {
+            System.out.println("The rectangle has a larger area.");
+        } else if (circleArea > rectArea) {
+            System.out.println("The circle has a larger area.");
+        } else {
+            System.out.println("Both shapes have the same area.");
+        }
+
+        scanner.close();
+    }
+}
