@@ -1,0 +1,81 @@
+names:Mukamakombe violette:
+Musoni rodrigue:
+Umurerwa aline carine:
+Gisubizo sandirine:
+Niyonshuti florence:
+
+
+
+case study no1
+==============
+package areaparameters;
+
+public class rectangle {
+	private double width;
+	private double length;
+	private double area;
+
+	public double calculatearea() {
+		return this.area=this.length*this.width;
+
+
+	}
+
+	public double getWidth() {
+		return width;
+	}
+
+	public void setWidth(double width) {
+		this.width = width;
+	}
+
+	public double getLength() {
+		return length;
+	}
+
+	public void setLength(double length) {
+		this.length = length;
+	}
+
+	public double getArea() {
+		return this.area=this.length*this.width;
+	}
+
+	public void setArea() {
+		this.area=this.length*this.width;
+		
+	
+		if (length == width) 
+		{
+			System.out.println("it is square");	
+			
+		}
+		else
+		{
+			
+			System.out.println("it is not square");
+		}}}
+
+package areaparameters;
+
+import java.util.Scanner;
+
+public class setrectangle {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		rectangle rt=new rectangle();
+		System.out.println("enter the value of length");
+		rt.setLength(sc.nextDouble());
+		System.out.println("enter the value of width");
+		rt.setWidth(sc.nextDouble());
+		rt.setArea();
+		
+		
+		
+		rt.calculatearea();
+		System.out.println("area:"+rt.getArea()+rt.calculatearea());
+	}
+
+}
+====================================================================================================
