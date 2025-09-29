@@ -1,0 +1,81 @@
+package com.work;
+
+	import java.util.Scanner;
+
+	public class ShapeCalculator {
+	    public static void main(String[] args) {
+	        Scanner scanner = new Scanner(System.in);
+
+	        System.out.println("Select a shape");
+	        System.out.println("1. Rectangle");
+	        System.out.println("2. Circle");
+	        System.out.println("3. Square");
+	        System.out.println("4. Triangle");
+	        int shape = scanner.nextInt();
+
+	        System.out.println("What would you like to calculate");
+	        System.out.println("A. Area");
+	        System.out.println("B. Perimeter");
+	        char choice = scanner.next().toUpperCase().charAt(0);
+
+	        switch (shape) {
+	            case 1: // Rectangle
+	                System.out.print("Enter length: ");
+	                double length = scanner.nextDouble();
+	                System.out.print("Enter width: ");
+	                double width = scanner.nextDouble();
+	                if (choice == 'A') {
+	                    System.out.println("Area: " + (length * width));
+	                } else {
+	                    System.out.println("Perimeter: " + (2 * (length + width)));
+	                }
+	                break;
+	            case 2: // Circle
+	                System.out.print("Enter radius: ");
+	                double radius = scanner.nextDouble();
+	                if (choice == 'A') {
+	                    System.out.println("Area: " + (Math.PI * radius * radius));
+	                } else {
+	                    System.out.println("Perimeter: " + (2 * Math.PI * radius));
+	                }
+	                break;
+	            case 3: // Square
+	                System.out.print("Enter side length: ");
+	                double side = scanner.nextDouble();
+	                if (choice == 'A') {
+	                    System.out.println("Area: " + (side * side));
+	                } else {
+	                    System.out.println("Perimeter: " + (4 * side));
+	                }
+	                break;
+	            case 4: // Triangle
+	                System.out.print("Enter base: ");
+	                double base = scanner.nextDouble();
+	                System.out.print("Enter height: ");
+	                double height = scanner.nextDouble();
+	                if (choice == 'A') {
+	                    System.out.println("Area: " + (0.5 * base * height));
+	                } else {
+	                    System.out.print("Enter other two sides: ");
+	                    double side1 = scanner.nextDouble();
+	                    double side2 = scanner.nextDouble();
+	                    System.out.println("Perimeter: " + (base + side1 + side2));
+	                }
+	                break;
+	            default:
+	                System.out.println("Invalid shape selection.");
+	        }
+
+	        System.out.println("Would you like to continue? Yes/No");
+	        String continueChoice = scanner.next();
+	        if (continueChoice.equalsIgnoreCase("Yes")) {
+	            main(null); // Recursively restart
+	        } else {
+	            System.out.println("Thank you for using system");
+	        }
+
+	        scanner.close();
+	    }
+	}
+
+
