@@ -1,0 +1,128 @@
+package com.work;
+
+import java.awt.Color;
+
+//import java.awt.event.ActionEvent;
+//import java.awt.event.ActionListener;
+import java.awt.event.*;
+
+import javax.swing.*;
+import javax.swing.text.AbstractDocument.Content;
+
+public class bankinterest extends JPanel implements ActionListener {
+	JFrame frame =new JFrame();
+	JLabel am=new JLabel("Amount requested");
+	JLabel durt=new JLabel("duration");
+	JLabel total=new JLabel("total return");
+
+	JTextField amtxt=new JTextField();
+	JTextField durttxt=new JTextField();
+	JTextField totalxt=new JTextField();
+	JButton calc=new JButton("caliculate");
+	public  bankinterest() {
+
+		createwindow();
+		setlocationandsize();
+		addcomponentstoframe();
+		addactionevents();
+
+
+	}
+
+
+
+
+
+
+
+
+
+
+	private void addactionevents() {
+		calc.addActionListener(this);
+
+
+	}
+
+
+
+
+
+
+
+
+
+
+	private void addcomponentstoframe() {
+		frame.add(am);frame.add(amtxt);frame.add(durt);frame.add(durttxt);frame.add(total);
+		frame.add(totalxt);frame.add( calc);
+
+	}
+
+
+
+
+
+	private void setlocationandsize() {
+		am.setBounds(10,10,100,30);
+		amtxt.setBounds(120,10,100,30);
+		durt.setBounds(10,50,100,30);
+		durttxt.setBounds(120,50,100,30);
+		total.setBounds(10,90,100,30);
+		totalxt.setBounds(120,90,100,30);
+		calc.setBounds(120,150,100,30);
+
+	}
+
+
+
+
+
+
+
+
+
+
+	private void createwindow() {
+		frame.setTitle("Bank interest over year");
+		frame.setBounds(10,10,300,400);
+		frame.getContentPane().setBackground(Color.gray);
+		frame.setLayout(null);
+		frame.setVisible(true);
+		frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
+
+
+	}
+
+
+
+
+
+
+
+
+
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		try {
+			double amount = Double.parseDouble(amtxt.getText());
+			int years = Integer.parseInt(durttxt.getText());
+
+			// Assuming interest rate = 0.6% per year
+			double interestRate = 0.006;
+			double total = amount + (amount * interestRate * years);
+
+			totalxt.setText(String.format("%.0f", total));
+		} catch (Exception ex) {
+			JOptionPane.showMessageDialog(this,"please enter valid number");
+		}
+	}
+
+
+
+}
+
+
+
+
